@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Adaeze Okonkwo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="images/ddd.jpg">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+
+      <a href="index.html" class="nav-logo">
+          <img src="images/ddd.jpg" alt="" class="nav-logo-badge">
+          <span>Portfolio</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="planner.html">Planner</a></li>
+          <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+
+  </nav>
+
+  <main>
+
+    <div class="page-hero">
+      <span class="section-label">Let's Connect</span>
+      <h1>Contact Me</h1>
+      <p>Have a question, a project idea, or just want to say hello? I would love to hear from you.</p>
+    </div>
+
+    <section class="section">
+      <div class="contact-grid">
+
+        <!-- INFO COLUMN -->
+        <div class="contact-info reveal">
+          <h2 style="font-size:1.3rem;margin-bottom:0.5rem;">Get In Touch</h2>
+          <p style="color:var(--muted);font-size:0.875rem;margin-bottom:2rem;line-height:1.7;">
+            Whether you want to collaborate, ask about my work, or connect as fellow students,
+            my inbox is always open.
+          </p>
+
+          <div class="contact-card">
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">i.david3105@miva.edu.ng</div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div>
+              <div class="contact-label">Phone</div>
+              <div class="contact-value">+234 703 902 0348</div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div>
+              <div class="contact-label">Location</div>
+              <div class="contact-value">Kwara, Nigeria</div>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div>
+              <div class="contact-label">Response Time</div>
+              <div class="contact-value">Usually within 24 hours</div>
+            </div>
+          </div>
+
+          <div style="margin-top:0.5rem;">
+            <p style="font-size:0.7rem;color:var(--muted);margin-bottom:0.6rem;text-transform:uppercase;letter-spacing:0.1em;font-family:var(--font-mono);">Also Find Me On</p>
+
+            <ul style="display:flex;flex-direction:column;gap:0.4rem;">
+              <li><a href="#" style="font-size:0.82rem;color:var(--mid);text-decoration:underline;text-underline-offset:3px;">GitHub — https://github.com/daviddamilare1</a></li>
+              <li><a href="#" style="font-size:0.82rem;color:var(--mid);text-decoration:underline;text-underline-offset:3px;">LinkedIn — https://www.linkedin.com/in/david-damilare-9b94b4405/</a></li>
+              <li><a href="#" style="font-size:0.82rem;color:var(--mid);text-decoration:underline;text-underline-offset:3px;">Twitter — @Man_Kagae</a></li>
+            </ul>
+
+          </div>
+
+        </div>
+
+        <!-- FORM COLUMN -->
+        <div class="reveal">
+          <div class="card" style="padding:2rem;">
+            <p style="font-size:0.78rem;font-family:var(--font-mono);color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.5rem;">Send a Message</p>
+
+            <div id="formSuccess" class="form-success" role="alert"></div>
+
+            <form id="contactForm" novalidate class="contact-form">
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="name">Full Name <span style="color:#b91c1c;">*</span></label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    class="form-input"
+                    placeholder="Your full name"
+                    autocomplete="name"
+                    required
+                    aria-required="true"
+                    aria-describedby="nameError"
+                  />
+                  <span class="field-error" id="nameError" role="alert"></span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="email">Email Address <span style="color:#b91c1c;">*</span></label>
+                  <input type="email" id="email" name="email" class="form-input" placeholder="your@email.com" autocomplete="email" required aria-required="true" aria-describedby="emailError"/>
+                  <span class="field-error" id="emailError" role="alert"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="phone">Phone Number <span style="color:#b91c1c;">*</span></label>
+                <input type="tel" id="phone" name="phone" class="form-input" placeholder="e.g. 07039020348" autocomplete="tel" required aria-required="true" aria-describedby="phoneError"/>
+                <span class="field-error" id="phoneError" role="alert"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" class="form-input" placeholder="e.g. Collaboration opportunity"/>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message">Message <span style="color:#b91c1c;">*</span></label>
+                <textarea id="message" name="message" class="form-input" placeholder="Tell me what is on your mind..." rows="5" required aria-required="true" aria-describedby="messageError"></textarea>
+                <span class="field-error" id="messageError" role="alert"></span>
+              </div>
+
+              <p style="font-size:0.72rem;color:var(--muted);margin-bottom:1.1rem;line-height:1.6;">
+                Fields marked <span style="color:#b91c1c;">*</span> are required.
+                Email must be a valid format. Phone must contain only digits (7 to 15 digits).
+                Message must be at least 10 characters.
+              </p>
+
+              <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- AVAILABILITY TABLE -->
+    <section class="section section-alt reveal">
+      <div class="section-header">
+        <span class="section-label">Availability</span>
+        <h2 class="section-title">When Can We Connect?</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="table-wrapper card">
+        <table>
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Hours (WAT)</th>
+              <th>Status</th>
+              <th>Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Monday – Wednesday</td> <td>18:00 – 21:00</td> <td><span class="tag" style="background:#f0fdf4;color:#166534;border-color:#bbf7d0;">Available</span></td> <td>Quick chats, email replies</td></tr>
+            <tr><td>Thursday</td> <td>19:00 – 21:00</td> <td><span class="tag" style="background:#f0fdf4;color:#166534;border-color:#bbf7d0;">Available</span></td> <td>Brief calls</td></tr>
+            <tr><td>Friday</td> <td>16:00 – 22:00</td> <td><span class="tag" style="background:#f0fdf4;color:#166534;border-color:#bbf7d0;">Available</span></td> <td>Project discussions</td></tr>
+            <tr><td>Saturday</td> <td>10:00 – 18:00</td> <td><span class="tag" style="background:#f0fdf4;color:#166534;border-color:#bbf7d0;">Available</span></td> <td>Video calls, collaboration</td></tr>
+            <tr><td>Sunday</td> <td>Study day</td> <td><span class="tag">Limited</span></td> <td>Email only</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:0.78rem;color:var(--muted);margin-top:1rem;">All times are in West Africa Time (WAT / UTC+1). I aim to respond within 24 hours.</p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p class="footer-copy">2026 Ijagbemi David&middot; MIVA Open University</p>
+    <nav class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+    </nav>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Ijagbemi David — Student Portfolio</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+      <link rel="icon" type="image/png" href="images/ddd.jpg">
+      <link rel="stylesheet" href="css/style.css" />
+      <style>
+        /* ---- HERO LAYOUT ---- */
+        .hero {
+          min-height: calc(100vh - 56px);
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          align-items: center;
+          padding: 0;
+          gap: 4rem;
+        }
+
+        /* Left: text */
+        .hero-text {
+          padding: 5rem 5% 5rem 6%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+        }
+
+        /* Right: photo fills the full right half */
+        .hero-photo-panel {
+          /* height: calc(100vh - 56px);
+          background: var(--cream);
+          position: relative;
+          overflow: hidden; */
+          /* height: 100%; */
+          height: calc(100vh - 56px);
+          position: relative;
+          overflow: hidden;
+          /* background: var(--cream); */
+          padding: 5rem 5% 5rem 6%;
+        }
+        .hero-photo-panel img {
+          /* width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center top;
+          display: block; */
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          border-radius:24px;
+          box-shadow:0 30px 80px rgba(0,0,0,.12);
+        }
+
+        /* Placeholder shown when no photo is uploaded */
+        .hero-photo-placeholder {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background: var(--cream);
+          gap: 1rem;
+          color: var(--muted);
+        }
+        .placeholder-circle {
+          width: 140px;
+          height: 140px;
+          border-radius: 50%;
+          background: var(--border);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .placeholder-initials {
+          font-family: var(--font-display);
+          font-size: 3rem;
+          font-weight: 700;
+          color: var(--mid);
+        }
+        .placeholder-hint {
+          font-size: 0.78rem;
+          color: var(--muted);
+          font-family: var(--font-mono);
+          text-align: center;
+          max-width: 160px;
+          line-height: 1.6;
+        }
+
+        /* Hero text animations (name + bio only) */
+        /* .hero-name {
+          font-family: var(--font-display);
+          font-size: clamp(2.6rem, 4.5vw, 4.2rem);
+          font-weight: 700;
+          color: var(--dark);
+          line-height: 1.08;
+          margin-bottom: 1.25rem;
+          opacity: 0;
+          transform: translateY(22px);
+          animation: fadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+        } */
+        /* .hero-bio {
+          font-size: 0.975rem;
+          color: var(--mid);
+          max-width: 100%;
+          line-height: 1.8;
+          margin-bottom: 2.25rem;
+          margin-left: 0;
+          opacity: 0;
+          transform: translateY(16px);
+          animation: fadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.32s forwards;
+        }
+        @keyframes fadeUp {
+          to { opacity: 1; transform: translateY(0); }
+        } */
+
+        .hero-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-family: var(--font-mono);
+          font-size: 0.68rem;
+          letter-spacing: 0.14em;
+          text-transform: uppercase;
+          color: var(--muted);
+          border: 1px solid var(--border);
+          border-radius: 20px;
+          padding: 0.3rem 0.9rem;
+          margin-bottom: 1.5rem;
+        }
+        .hero-badge-dot {
+          width: 6px; height: 6px;
+          border-radius: 50%;
+          background: #22c55e;
+        }
+
+        .hero-cta {
+          display: flex;
+          gap: 0.75rem;
+          flex-wrap: wrap;
+        }
+
+        .hero-stats-row {
+          display: flex;
+          gap: 2rem;
+          margin-top: 3.5rem;
+          max-width:520px;
+          
+          padding-top: 2rem;
+          border-top: 1px solid var(--border);
+          flex-wrap: wrap;
+        }
+        .stat { }
+        .stat-num { font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; color: var(--dark); line-height: 1; }
+        .stat-label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.09em; margin-top: 0.2rem; }
+
+        @media (max-width: 860px) {
+          .hero { grid-template-columns: 1fr; }
+          .hero-text { padding: 3.5rem 6%; align-items: center; text-align: center; }
+          .hero-bio { max-width: 100%; }
+          .hero-photo-panel { height: 320px; }
+          .hero-stats-row { justify-content: center; }
+          .hero-cta { justify-content: center; }
+        }
+      </style>
+    </head>
+    <body>
+
+      <!-- NAVIGATION -->
+      <!-- <nav>
+        <a href="index.html" class="nav-logo">
+          <span class="nav-logo-badge">AO</span>
+          Portfolio
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="planner.html">Planner</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav> -->
+
+      <nav class="navbar">
+
+          <a href="index.html" class="nav-logo">
+              <img src="images/ddd.jpg" alt="" class="nav-logo-badge">
+              <span>Portfolio</span>
+          </a>
+
+          <ul class="nav-links" id="navLinks">
+              <li><a class="active" href="index.html">Home</a></li>
+              <li><a href="about.html">About Me</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li><a href="planner.html">Planner</a></li>
+              <li><a href="contact.html">Contact</a></li>
+          </ul>
+
+          <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+              <span></span>
+              <span></span>
+              <span></span>
+          </button>
+
+      </nav>
+
+      <main>
+
+        <!-- HERO: text left, photo right -->
+        <section class="hero">
+
+          <div class="hero-text">
+            <div class="hero-badge">
+              <span class="hero-badge-dot"></span>
+              Miva Open University Student
+            </div>
+            <!-- <h1>Hello,</h1>
+            <h2 class="hero-name">I'm Ijagbemi David</h2> -->
+
+            <!-- <div class="hero-heading">
+                <h1 class="hero-greeting">Hello,</h1>
+                <h2 class="hero-name">I'm Ijagbemi David</h2>
+            </div>
+
+            <p class="hero-bio">
+              Cybersecurity student passionate about ethical hacking, threat intelligence, 
+              and developing robust security solutions to protect sensitive data and critical systems.
+            </p> -->
+
+            <div class="hero-content">
+
+                <div class="hero-heading">
+                    <h1 class="hero-greeting">Hello,</h1>
+                    <h2 class="hero-name">I'm Ijagbemi David</h2>
+                </div>
+
+                <p class="hero-bio">
+                    Cybersecurity student passionate about ethical hacking, threat intelligence, 
+                    and developing robust security solutions to protect sensitive data and critical systems.
+                </p>
+            </div>
+
+            <div class="hero-cta">
+              <a href="projects.html" class="btn btn-primary">View My Projects</a>
+              <a href="contact.html" class="btn btn-outline">Get in Touch</a>
+            </div>
+
+            <div class="hero-stats-row">
+
+              <div class="stat">
+                <div class="stat-num">1st</div>
+                <div class="stat-label">Year</div>
+              </div>
+
+              <div class="stat">
+                <div class="stat-num">4.41</div>
+                <div class="stat-label">GPA</div>
+              </div>
+
+              <div class="stat">
+                <div class="stat-num">3+</div>
+                <div class="stat-label">Projects</div>
+              </div>
+
+              <div class="stat">
+                <div class="stat-num">Kwara</div>
+                <div class="stat-label">Location</div>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- My Photo -->
+          <div class="hero-photo-panel">
+            <img src="images/5.jpeg" alt="Ijagbemi David" id="heroPhoto" onerror="this.style.display='none'; document.getElementById('heroPH').style.display='flex';"/>
+            
+          </div>
+
+        </section>
+
+        <!-- SKILLS -->
+        <section class="section section-alt">
+
+          <div class="section-header reveal">
+            <span class="section-label">What I Know</span>
+            <h2 class="section-title">Core Skills</h2>
+            <div class="section-line"></div>
+            <p class="section-desc">Technologies I work with regularly and I'm actively deepening.</p>
+          </div>
+
+          <div class="skills-grid">
+            <div class="skill-item reveal">HTML5</div>
+            <div class="skill-item reveal">CSS3</div>
+            <div class="skill-item reveal">JavaScript</div>
+            <div class="skill-item reveal">Python</div>
+            <div class="skill-item reveal">Django</div>
+            <div class="skill-item reveal">Postgresql</div>
+            <div class="skill-item reveal">Git and GitHub</div>
+            <div class="skill-item reveal">React</div>
+            
+          </div>
+
+        </section>
+
+        <!-- COURSES TABLE -->
+        <section class="section reveal">
+
+          <div class="section-header">
+            <span class="section-label">Academics</span>
+            <h2 class="section-title">Current Courses</h2>
+            <div class="section-line"></div>
+          </div>
+
+          <div class="table-wrapper card">
+            <table>
+              <thead>
+                <tr>
+                  <th>Course Code</th>
+                  <th>Course Title</th>
+                  <th>Units</th>
+                  <th>Status</th>
+                </tr>
+
+              </thead>
+              <tbody>
+                <tr><td>GST 122</td> <td>Communication in English Language II</td> <td>2</td> <td><span class="tag" style="background:#f0fdf4;color:#166534;border-color:#bbf7d0;">In Progress</span></td></tr>
+                <tr><td>MTH 102</td> <td>Elementary Mathematics (Calculus)II</td> <td>2</td> <td><span class="tag" style="background:#f0fdf4;color:#166534;border-color:#bbf7d0;">In Progress</span></td></tr>
+                <tr><td>PHY 102</td> <td>General Physics II</td> <td>2</td> <td><span class="tag" style="background:#f0fdf4;color:#166534;border-color:#bbf7d0;">In Progress</span></td></tr>
+                <tr><td>PHY 108</td> <td>General Physics Practical II</td> <td>1</td> <td><span class="tag" style="background:#f0fdf4;color:#166534;border-color:#bbf7d0;">In Progress</span></td></tr>
+                <tr><td>COS 102</td> <td>Introduction to Problem-Solving</td> <td>3</td> <td><span class="tag" style="background:#f0fdf4;color:#166534;border-color:#bbf7d0;">In Progress</span></td></tr>
+
+                <tr><td>MIVA-CSC 106</td> <td>Introduction to Web Technologies</td> <td>3</td> <td><span class="tag" style="background:#f0fdf4;color:#166534;border-color:#bbf7d0;">In Progress</span></td></tr>
+                <tr><td>GST 112</td> <td>Nigerian Peoples and Culture</td> <td>2</td> <td><span class="tag" style="background:#f0fdf4;color:#166534;border-color:#bbf7d0;">In Progress</span></td></tr>
+                <tr><td>MIVA-COS 111</td> <td>Technical Certification in Computing I</td> <td>1</td> <td><span class="tag" style="background:#f0fdf4;color:#166534;border-color:#bbf7d0;">In Progress</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+        </section>
+
+        <!-- MULTIMEDIA -->
+        <section class="section section-alt reveal"> 
+
+          <div class="section-header">
+            <span class="section-label">Media</span>
+            <h2 class="section-title">Introduction and Inspiration</h2>
+            <div class="section-line"></div>
+          </div>
+
+          <div class="media-grid">
+
+            <div class="media-card reveal">
+              <h4>Audio Introduction</h4>
+              <p>A brief voice note introducing myself and my passion for web development.</p>
+              <audio controls aria-label="Audio introduction">
+                <source src="images/audio/WhatsApp Audio 2026-07-04 at 03.10.44.mpeg" type="audio/ogg" />
+                <source src="images/audio/WhatsApp Audio 2026-07-04 at 03.10.44.mpeg" type="audio/mpeg" />
+               
+              </audio>
+              <p style="font-size:0.7rem;color:#bbb;margin-top:0.5rem;">Sample audio for demonstration.</p>
+            </div>
+
+            <div class="media-card reveal">
+              <h4>Web Dev Inspiration</h4>
+              <p>A short video on why I chose Cyber Security as my career path.</p>
+              <video controls aria-label="Inspiration video" style="border-radius:24px;">
+                <source src="images/videos/WhatsApp Video 2026-07-04 at 08.11.55.mp4" type="video/mp4" />
+                <source src="images/videos/WhatsApp Video 2026-07-04 at 08.11.55.mp4" type="video/ogg" />
+               
+              </video>
+
+              <p style="font-size:0.7rem;color:#bbb;margin-top:0.5rem;">Sample video for demonstration.</p>
+            </div>
+
+          </div>
+
+        </section>
+
+      </main>
+
+      <footer>
+        <p class="footer-copy">2026 Ijagbemi David &middot; MIVA Open University</p>
+        <nav class="footer-links">
+          <a href="about.html">About</a>
+          <a href="projects.html">Projects</a>
+          <a href="planner.html">Planner</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </footer>
+
+      <script src="js/main.js"></script>
+
+      <script>
+          // Show placeholder immediately if image fails to load at all
+          window.addEventListener('DOMContentLoaded', () => {
+            const img = document.getElementById('heroPhoto');
+            const ph  = document.getElementById('heroPH');
+            if (img && !img.complete) {
+              img.addEventListener('error', () => {
+                img.style.display = 'none';
+                if (ph) ph.style.display = 'flex';
+              });
+            } else if (img && img.naturalWidth === 0) {
+              img.style.display = 'none';
+              if (ph) ph.style.display = 'flex';
+            }
+          });
+      </script>
+    </body>
+</html>

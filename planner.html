@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academic Planner — Adaeze Okonkwo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="images/ddd.jpg">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+
+      <a href="index.html" class="nav-logo">
+          <img src="images/ddd.jpg" alt="" class="nav-logo-badge">
+          <span>Portfolio</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="planner.html">Planner</a></li>
+          <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+
+  </nav>
+
+  <main>
+
+    <div class="page-hero">
+      <span class="section-label">Stay Organised</span>
+      <h1>Academic Planner</h1>
+      <p>Track assignments, deadlines, and study tasks. Your personal semester command centre.</p>
+    </div>
+
+    <section class="section">
+      <div class="planner-container">
+
+        <!-- STATS -->
+        <div class="planner-stats reveal">
+          <div class="planner-stat-card">
+            <div class="planner-stat-num" id="statTotal">0</div>
+            <div class="planner-stat-label">Total Tasks</div>
+          </div> 
+
+          <div class="planner-stat-card">
+            <div class="planner-stat-num" id="statPending">0</div>
+            <div class="planner-stat-label">Pending</div>
+          </div>
+
+          <div class="planner-stat-card">
+            <div class="planner-stat-num" id="statDone">0</div>
+            <div class="planner-stat-label">Completed</div>
+          </div>
+
+        </div>
+
+        <!-- ADD TASK -->
+        <div class="card reveal" style="margin-bottom:2rem;">
+          <p style="font-size:0.78rem;font-family:var(--font-mono);color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.1rem;">Add New Task</p>
+          <div class="planner-input-group">
+            <input type="text" id="taskInput" class="planner-input" placeholder="e.g. Submit COS 106 lab report..." aria-label="Task description" style="flex:2;"/>
+            <input type="text" id="courseInput" class="planner-input" placeholder="Course (e.g. COS 106)" aria-label="Course name" style="max-width:180px;"/>
+          </div>
+
+          <div class="planner-input-group" style="margin-bottom:0;">
+            <input type="date" id="dueDateInput" class="planner-input" aria-label="Due date" style="max-width:200px;"/>
+
+            <select id="prioritySelect" class="planner-input" aria-label="Priority level" style="max-width:170px;">
+              <option value="high">High Priority</option>
+              <option value="medium" selected>Medium Priority</option>
+              <option value="low">Low Priority</option>
+            </select> 
+            
+            <button id="addTaskBtn" class="btn btn-primary" style="white-space:nowrap;"> Add Task</button>
+          </div>
+        </div>
+
+        <!-- TASK LIST -->
+        <div class="reveal">
+
+          <div class="actions-bar">
+
+            <div class="filter-bar">
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="pending">Pending</button>
+              <button class="filter-btn" data-filter="completed">Completed</button>
+            </div>
+
+            <button id="clearCompletedBtn" class="btn btn-outline" style="font-size:0.78rem;padding:0.35rem 1rem;"> Clear Completed</button>
+          </div>
+
+          <div class="planner-tip">
+            Click the circle to mark a task done. Tasks are sorted by priority — high first.
+            Your tasks are saved automatically in your browser.
+          </div>
+
+          <ul class="task-list" id="taskList" aria-live="polite" aria-label="Task list"></ul>
+
+          <div class="empty-state" id="emptyState" style="display:none;" aria-live="polite">
+            <div class="empty-icon">—</div>
+            <p style="font-weight:600;margin-bottom:0.4rem;">No tasks here</p>
+            <p style="font-size:0.82rem;">Add a task above to get started.</p>
+          </div>
+        </div>
+
+        <!-- HOW IT WORKS -->
+        <div class="card reveal" style="margin-top:3rem;background:var(--cream);">
+          <p style="font-size:0.78rem;font-family:var(--font-mono);color:var(--muted);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1rem;">How It Works</p>
+          <div class="grid-2" style="gap:1.25rem;">
+            <div>
+              <p style="font-size:0.82rem;font-weight:600;color:var(--dark);margin-bottom:0.3rem;">Adding tasks</p>
+              <p style="font-size:0.8rem;color:var(--muted);">Type a description, optionally add a course, due date, and priority, then click Add Task or press Enter.</p>
+            </div>
+
+            <div>
+              <p style="font-size:0.82rem;font-weight:600;color:var(--dark);margin-bottom:0.3rem;">Completing tasks</p>
+              <p style="font-size:0.8rem;color:var(--muted);">Click the circle on any task to toggle it between pending and completed states.</p>
+            </div>
+
+            <div>
+              <p style="font-size:0.82rem;font-weight:600;color:var(--dark);margin-bottom:0.3rem;">Deleting tasks</p>
+              <p style="font-size:0.8rem;color:var(--muted);">Click the X button to permanently remove a task. Use Clear Completed to remove all done tasks at once.</p>
+            </div>
+
+            <div>
+              <p style="font-size:0.82rem;font-weight:600;color:var(--dark);margin-bottom:0.3rem;">Auto-save</p>
+              <p style="font-size:0.8rem;color:var(--muted);">Tasks are saved to your browser's localStorage and persist when you return to this page.</p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p class="footer-copy">2026 Ijagbemi David&middot; MIVA Open University</p>
+    <nav class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/planner.js"></script>
+</body>
+</html>

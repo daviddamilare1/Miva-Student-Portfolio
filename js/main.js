@@ -33,14 +33,6 @@ function setActiveNav() {
 
 document.addEventListener("DOMContentLoaded", setActiveNav);
 
-// function setActiveNav() {
-//   const page = location.pathname.split('/').pop() || 'index.html';
-//   document.querySelectorAll('.nav-links a').forEach(a => {
-//     const href = a.getAttribute('href');
-//     a.classList.toggle('active', href === page);
-//   });
-// }
-// setActiveNav();
 
 
 

@@ -22,13 +22,25 @@ if (hamburger && navLinks) {
 
 // Highlight active nav link based on current page
 function setActiveNav() {
-  const page = location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    const href = a.getAttribute('href');
-    a.classList.toggle('active', href === page);
+  const currentPath = window.location.pathname;
+
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    const linkPath = new URL(link.href, window.location.origin).pathname;
+
+    link.classList.toggle("active", linkPath === currentPath);
   });
 }
-setActiveNav();
+
+document.addEventListener("DOMContentLoaded", setActiveNav);
+
+// function setActiveNav() {
+//   const page = location.pathname.split('/').pop() || 'index.html';
+//   document.querySelectorAll('.nav-links a').forEach(a => {
+//     const href = a.getAttribute('href');
+//     a.classList.toggle('active', href === page);
+//   });
+// }
+// setActiveNav();
 
 
 
